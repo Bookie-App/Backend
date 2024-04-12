@@ -14,7 +14,7 @@ public class Mensaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String mensaje;
+    private String texto;
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
     @ManyToOne(fetch = FetchType.LAZY)
