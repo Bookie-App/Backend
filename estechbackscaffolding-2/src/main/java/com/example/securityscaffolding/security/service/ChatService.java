@@ -29,7 +29,7 @@ public class ChatService {
             mensajes.forEach(mensaje -> {
                 Map<String, Object> mapa = new HashMap<>();
                 mapa.put("user", mensaje.getUsuario().getId());
-                mapa.put("message", mensaje.getMensaje());
+                mapa.put("message", mensaje.getTexto());
                 listaMapa.add(mapa);
             });
         }
