@@ -1,4 +1,4 @@
-package com.example.securityscaffolding.controller;
+package com.example.securityscaffolding.controller.chat;
 
 import com.example.securityscaffolding.security.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
