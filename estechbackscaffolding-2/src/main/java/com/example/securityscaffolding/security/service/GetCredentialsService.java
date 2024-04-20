@@ -26,7 +26,7 @@ public class GetCredentialsService {
         userAuth = jwtService.extractUsername(jwt);
 
         Usuario usuario =  usuarioRepository.findByUsername(userAuth).get();
-        String userRol = usuario.getRol().name();
+        String userRol = usuario.getId().toString();
 
         map.put("username" , userAuth);
         map.put("rol" , userRol);

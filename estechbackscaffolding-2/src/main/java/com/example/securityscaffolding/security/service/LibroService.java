@@ -1,6 +1,7 @@
 package com.example.securityscaffolding.security.service;
 
 import com.example.securityscaffolding.model.entity.Libro;
+import com.example.securityscaffolding.model.entity.Usuario;
 import com.example.securityscaffolding.repository.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class LibroService {
 
     public List<Libro> listaLibros(){
         return libroRepository.findAll();
+    }
+
+    public List<Libro> listaLibrosUsuario(Usuario usuario){
+        return libroRepository.findByUsuario(usuario);
     }
 
     public void eliminarLibro(Long id){
