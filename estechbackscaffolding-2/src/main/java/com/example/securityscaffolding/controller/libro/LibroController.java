@@ -19,7 +19,7 @@ public class LibroController {
 
     //Lista libros
     @GetMapping
-    public List<Libro> listaLibros(){
+    public List<LibroDTO> listaLibros(){
         return libroService.listaLibros();
     }
 

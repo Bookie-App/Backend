@@ -32,8 +32,13 @@ public class LibroService {
     }
 
     //Lista libros
-    public List<Libro> listaLibros(){
-        return libroRepository.findAll();
+    public List<LibroDTO> listaLibros(){
+        List<Libro> listaLibros = libroRepository.findAll();
+        List<LibroDTO> listaDTO = new ArrayList<>();
+        listaLibros.forEach(libro -> {
+            listaDTO.add(libroConverter.convertLibroToLibroDTO(libro));
+        });
+        return listaDTO;
     }
 
     //Lista libros usuario
