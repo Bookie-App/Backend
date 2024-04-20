@@ -1,5 +1,6 @@
 package com.example.securityscaffolding.controller.libro;
 
+import com.example.securityscaffolding.dto.LibroDTO;
 import com.example.securityscaffolding.model.entity.Libro;
 import com.example.securityscaffolding.model.entity.Usuario;
 import com.example.securityscaffolding.security.service.LibroService;
@@ -22,14 +23,15 @@ public class LibroController {
         return libroService.listaLibros();
     }
 
-    @GetMapping("/usuario")
-    public List<Libro> listaLibroUsuario(@RequestBody Usuario usuario){
-        return libroService.listaLibrosUsuario(usuario);
+    //Lista libros usuario
+    @GetMapping("/usuario/{id}")
+    public List<LibroDTO> listaLibroUsuario(@PathVariable Long id){
+        return libroService.listaLibrosUsuario(id);
     }
 
     //Subir libro
     @PostMapping
-    public Libro subirLibro(@RequestBody Libro libro){
+    public LibroDTO subirLibro(@RequestBody Libro libro){
         return libroService.subirLibro(libro);
     }
 
