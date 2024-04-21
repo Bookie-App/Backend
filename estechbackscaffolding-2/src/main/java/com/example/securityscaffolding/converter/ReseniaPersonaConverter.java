@@ -13,8 +13,6 @@ public class ReseniaPersonaConverter {
                 .username(reseniaPersona.getUsername())
                 .comentario(reseniaPersona.getComentario())
                 .fechaReseniaPersona(reseniaPersona.getFechaReseniaPersona())
-                .usuarioPuntuado(reseniaPersona.getUsuarioPuntuado())
-                .usuarioPuntuador(reseniaPersona.getUsuarioPuntuador())
                 .build();
     }
 }

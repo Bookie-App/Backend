@@ -16,6 +16,4 @@ public class ReseniaPersonaDTO {
     private String username;
     private String comentario;
     private String fechaReseniaPersona;
-    private Usuario usuarioPuntuado;
-    private Usuario usuarioPuntuador;
 }
