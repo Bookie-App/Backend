@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 @Service
 public class AuthenticationService {
@@ -33,26 +34,33 @@ public class AuthenticationService {
 
     public AuthenticationResponse register(RegisterRequest request) {
 
-        var user = Usuario.builder()
-                .rol(Rol.valueOf(request.getRol()))
-                .nombre(request.getNombre())
-                .username(request.getUsername())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .email(request.getEmail())
-                .ciudad(request.getCiudad())
-                .provincia(request.getProvincia())
-                .codigoPostal(request.getCodigoPostal())
-                .foto(request.getFoto())
-                .reportado(request.getReportado())
-                .token(request.getToken())
-                .build();
+        var findUsername = usuarioRepository.findByUsername(request.getUsername());
 
-        usuarioRepository.save(user);
-        var jwtToken = jwtService.generateToken(user);
+        if(findUsername.isEmpty()){
+            var user = Usuario.builder()
+                    .rol(Rol.valueOf(request.getRol()))
+                    .nombre(request.getNombre())
+                    .username(request.getUsername())
+                    .password(passwordEncoder.encode(request.getPassword()))
+                    .email(request.getEmail())
+                    .ciudad(request.getCiudad())
+                    .provincia(request.getProvincia())
+                    .codigoPostal(request.getCodigoPostal())
+                    .foto(request.getFoto())
+                    .reportado(request.getReportado())
+                    .token(request.getToken())
+                    .build();
 
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-                .build();
+            usuarioRepository.save(user);
+            var jwtToken = jwtService.generateToken(user);
+
+            return AuthenticationResponse.builder()
+                    .token(jwtToken)
+                    .build();
+        }else{
+            return null;
+        }
+
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request){
