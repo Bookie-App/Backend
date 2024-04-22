@@ -19,4 +19,5 @@ public class LibroDTO {
     private String sinopsis;
     private String editorial;
     private String usuario;
+    private Long userId;
 }
