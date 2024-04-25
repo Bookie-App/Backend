@@ -12,6 +12,7 @@ public class ChatConverter {
                 .chatId(chats.getId())
                 .usuarioReceptorUsername(chats.getUsuarioReceptor().getUsername())
                 .usuarioReceptorId(chats.getUsuarioReceptor().getId())
+                .usuarioEmisorId(chats.getUsuarioEmisor().getId())
                 .build();
     }
 }

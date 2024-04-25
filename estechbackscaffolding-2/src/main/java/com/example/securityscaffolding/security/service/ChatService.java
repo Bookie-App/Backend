@@ -58,11 +58,14 @@ public class ChatService {
     public List<ChatDTO> listaChatsUsuario(Long id){
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
         List<Chats> listaChats = chatRepository.findByUsuarioEmisor(usuario);
+        List<Chats> listaChats2 = chatRepository.findByUsuarioReceptor(usuario);
         List<ChatDTO> listaDTO = new ArrayList<>();
         listaChats.forEach(chats -> {
             listaDTO.add(chatConverter.convertChatsToChatDTO(chats));
         });
+        listaChats2.forEach(chats -> {
+            listaDTO.add(chatConverter.convertChatsToChatDTO(chats));
+        });
         return listaDTO;
     }
-
 }

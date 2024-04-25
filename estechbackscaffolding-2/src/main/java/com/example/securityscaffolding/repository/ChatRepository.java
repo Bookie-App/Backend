@@ -13,4 +13,7 @@ public interface ChatRepository extends JpaRepository<Chats, Long> {
     List<Chats> findByUsuarioEmisorOrUsuarioReceptor(Usuario usuarioEmisor, Usuario usuarioReceptor);
 
     List<Chats> findByUsuarioEmisor(Usuario usuarioEmisor);
+
+    List<Chats> findByUsuarioReceptor(Usuario usuarioReceptor);
+
 }

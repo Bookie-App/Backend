@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class ChatDTO {
 
     private Long chatId;
+    private Long usuarioEmisorId;
     private Long usuarioReceptorId;
     private String usuarioReceptorUsername;
 }
