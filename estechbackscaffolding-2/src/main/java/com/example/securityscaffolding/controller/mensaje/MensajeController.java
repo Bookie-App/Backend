@@ -1,5 +1,6 @@
 package com.example.securityscaffolding.controller.mensaje;
 
+import com.example.securityscaffolding.dto.MensajeDTO;
 import com.example.securityscaffolding.model.entity.Mensaje;
 import com.example.securityscaffolding.security.service.MensajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class MensajeController {
     private MensajeService mensajeService;
 
     @PostMapping
-    public Mensaje save(@RequestBody Mensaje mensaje){
-        return mensajeService.saveMessage(mensaje);
+    public MensajeDTO subirMensajeDTO(@RequestBody Mensaje mensaje){
+        return mensajeService.subirMensajeDTO(mensaje);
     }
 }
