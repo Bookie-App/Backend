@@ -1,5 +1,7 @@
 package com.example.securityscaffolding.security.service;
 
+import com.example.securityscaffolding.converter.ChatConverter;
+import com.example.securityscaffolding.dto.ChatDTO;
 import com.example.securityscaffolding.model.entity.Chats;
 import com.example.securityscaffolding.model.entity.Mensaje;
 import com.example.securityscaffolding.repository.ChatRepository;
@@ -16,6 +18,9 @@ public class ChatService {
 
     @Autowired
     private ChatRepository chatRepository;
+
+    @Autowired
+    private ChatConverter chatConverter;
 
 
     public List<Map<String, Object>> showById(Long id) {
@@ -35,6 +40,12 @@ public class ChatService {
         }
 
         return listaMapa;
+    }
+
+    public ChatDTO subirChatDTO(Chats chats){
+        Chats chatGuardado = chatRepository.save(chats);
+        ChatDTO chatDTO = chatConverter.convertChatsToChatDTO(chatGuardado);
+        return chatDTO;
     }
 
 }
