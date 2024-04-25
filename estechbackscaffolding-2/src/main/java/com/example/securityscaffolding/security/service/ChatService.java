@@ -4,7 +4,9 @@ import com.example.securityscaffolding.converter.ChatConverter;
 import com.example.securityscaffolding.dto.ChatDTO;
 import com.example.securityscaffolding.model.entity.Chats;
 import com.example.securityscaffolding.model.entity.Mensaje;
+import com.example.securityscaffolding.model.entity.Usuario;
 import com.example.securityscaffolding.repository.ChatRepository;
+import com.example.securityscaffolding.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,9 @@ public class ChatService {
 
     @Autowired
     private ChatConverter chatConverter;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
 
     public List<Map<String, Object>> showById(Long id) {
@@ -42,10 +47,22 @@ public class ChatService {
         return listaMapa;
     }
 
+    //Subir chat
     public ChatDTO subirChatDTO(Chats chats){
         Chats chatGuardado = chatRepository.save(chats);
         ChatDTO chatDTO = chatConverter.convertChatsToChatDTO(chatGuardado);
         return chatDTO;
+    }
+
+    //Lista chats del usuario
+    public List<ChatDTO> listaChatsUsuario(Long id){
+        Usuario usuario = usuarioRepository.findById(id).orElse(null);
+        List<Chats> listaChats = chatRepository.findByUsuarioEmisor(usuario);
+        List<ChatDTO> listaDTO = new ArrayList<>();
+        listaChats.forEach(chats -> {
+            listaDTO.add(chatConverter.convertChatsToChatDTO(chats));
+        });
+        return listaDTO;
     }
 
 }

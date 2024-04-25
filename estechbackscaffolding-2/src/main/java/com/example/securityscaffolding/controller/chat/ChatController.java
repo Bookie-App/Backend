@@ -27,4 +27,9 @@ public class ChatController {
     public ChatDTO subirChatDTO(@RequestBody Chats chats){
         return chatService.subirChatDTO(chats);
     }
+
+    @GetMapping("/usuario/{id}")
+    public List<ChatDTO> listaChatsUsuario(@PathVariable Long id){
+        return chatService.listaChatsUsuario(id);
+    }
 }

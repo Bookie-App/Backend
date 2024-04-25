@@ -11,4 +11,6 @@ import java.util.List;
 public interface ChatRepository extends JpaRepository<Chats, Long> {
 
     List<Chats> findByUsuarioEmisorOrUsuarioReceptor(Usuario usuarioEmisor, Usuario usuarioReceptor);
+
+    List<Chats> findByUsuarioEmisor(Usuario usuarioEmisor);
 }

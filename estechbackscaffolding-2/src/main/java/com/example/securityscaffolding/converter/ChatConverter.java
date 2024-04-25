@@ -10,6 +10,7 @@ public class ChatConverter {
     public ChatDTO convertChatsToChatDTO(Chats chats){
         return ChatDTO.builder()
                 .chatId(chats.getId())
+                .usuarioReceptorUsername(chats.getUsuarioReceptor().getUsername())
                 .build();
     }
 }
