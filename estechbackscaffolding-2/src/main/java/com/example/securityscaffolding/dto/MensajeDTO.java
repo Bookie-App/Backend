@@ -13,4 +13,5 @@ public class MensajeDTO {
 
     private String texto;
     private Long userId;
+    private String fechaMensaje;
 }

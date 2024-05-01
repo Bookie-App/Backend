@@ -15,4 +15,5 @@ public class ChatDTO {
     private Long usuarioEmisorId;
     private Long usuarioReceptorId;
     private String usuarioReceptorUsername;
+    private String usuarioEmisorUsername;
 }

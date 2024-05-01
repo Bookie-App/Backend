@@ -40,6 +40,7 @@ public class ChatService {
                 Map<String, Object> mapa = new HashMap<>();
                 mapa.put("user", mensaje.getUsuario().getId());
                 mapa.put("message", mensaje.getTexto());
+                mapa.put("fecha", mensaje.getFechaMensaje());
                 listaMapa.add(mapa);
             });
         }

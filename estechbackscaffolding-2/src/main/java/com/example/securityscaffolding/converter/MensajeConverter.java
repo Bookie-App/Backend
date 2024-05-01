@@ -11,6 +11,7 @@ public class MensajeConverter {
         return MensajeDTO.builder()
                 .texto(mensaje.getTexto())
                 .userId(mensaje.getUsuario().getId())
+                .fechaMensaje(mensaje.getFechaMensaje())
                 .build();
     }
 }
