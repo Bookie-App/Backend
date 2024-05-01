@@ -27,9 +27,19 @@ public class GetCredentialsService {
 
         Usuario usuario =  usuarioRepository.findByUsername(userAuth).get();
         Long userId = usuario.getId();
+        String nombre = usuario.getNombre();
+        String email = usuario.getEmail();
+        String ciudad = usuario.getCiudad();
+        String provincia = usuario.getProvincia();
+        Integer codigoPostal = usuario.getCodigoPostal();
 
         map.put("username" , userAuth);
         map.put("id" , userId);
+        map.put("nombre", nombre);
+        map.put("email", email);
+        map.put("ciudad", ciudad);
+        map.put("provincia", provincia);
+        map.put("codigoPostal", codigoPostal);
 
         return  map;
 
