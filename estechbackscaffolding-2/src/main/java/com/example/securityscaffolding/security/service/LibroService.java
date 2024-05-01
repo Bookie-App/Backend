@@ -31,7 +31,7 @@ public class LibroService {
         return libroDTO;
     }
 
-    //Lista libros
+    //Lista todos los libros
     public List<LibroDTO> listaLibros(){
         List<Libro> listaLibros = libroRepository.findAll();
         List<LibroDTO> listaDTO = new ArrayList<>();
@@ -45,6 +45,16 @@ public class LibroService {
     public List<LibroDTO> listaLibrosUsuario(Long id){
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
         List<Libro> listaLibros = libroRepository.findByUsuario(usuario);
+        List<LibroDTO> listaDTO = new ArrayList<>();
+        listaLibros.forEach(libro -> {
+            listaDTO.add(libroConverter.convertLibroToLibroDTO(libro));
+        });
+        return listaDTO;
+    }
+
+    //Lista libros por género
+    public List<LibroDTO> listaLibrosGenero(String genero){
+        List<Libro> listaLibros = libroRepository.findByGenero(genero);
         List<LibroDTO> listaDTO = new ArrayList<>();
         listaLibros.forEach(libro -> {
             listaDTO.add(libroConverter.convertLibroToLibroDTO(libro));

@@ -29,6 +29,12 @@ public class LibroController {
         return libroService.listaLibrosUsuario(id);
     }
 
+    //Lista libros por género
+    @GetMapping("/genero/{genero}")
+    public List<LibroDTO> listaLibrosGenero(@PathVariable String genero){
+        return libroService.listaLibrosGenero(genero);
+    }
+
     //Subir libro
     @PostMapping
     public LibroDTO subirLibro(@RequestBody Libro libro){
