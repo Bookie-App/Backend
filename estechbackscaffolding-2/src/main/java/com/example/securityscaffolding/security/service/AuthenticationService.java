@@ -58,9 +58,7 @@ public class AuthenticationService {
                     .token(jwtToken)
                     .build();
         }else{
-            return AuthenticationResponse.builder()
-                    .token("Usuario ya registrado")
-                    .build();
+            return null;
         }
 
     }
