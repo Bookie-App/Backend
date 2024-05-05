@@ -10,7 +10,7 @@ public class ReseniaPersonaConverter {
     public ReseniaPersonaDTO convertReseniaPersonaToReseniaPersonaDTO(ReseniaPersona reseniaPersona){
         return ReseniaPersonaDTO.builder()
                 .puntuacion(reseniaPersona.getPuntuacion())
-                .username(reseniaPersona.getUsername())
+                .username(reseniaPersona.getUsuarioPuntuado().getUsername())
                 .comentario(reseniaPersona.getComentario())
                 .fechaReseniaPersona(reseniaPersona.getFechaReseniaPersona())
                 .build();
