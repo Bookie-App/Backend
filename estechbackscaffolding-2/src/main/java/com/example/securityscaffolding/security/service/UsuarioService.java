@@ -1,5 +1,7 @@
 package com.example.securityscaffolding.security.service;
 
+import com.example.securityscaffolding.converter.UsuarioConverter;
+import com.example.securityscaffolding.dto.UsuarioDTO;
 import com.example.securityscaffolding.model.entity.Chats;
 import com.example.securityscaffolding.model.entity.Mensaje;
 import com.example.securityscaffolding.model.entity.Usuario;
@@ -17,6 +19,9 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private UsuarioConverter usuarioConverter;
 
     @Autowired
     private ChatRepository chatRepository;
@@ -53,5 +58,20 @@ public class UsuarioService {
     public Usuario buscarUsuario(Long id){
         return usuarioRepository.findById(id).orElse(null);
 
+    }
+
+    public UsuarioDTO buscarUsuarioDTO(Long id){
+        Usuario usuario = usuarioRepository.findById(id).orElse(null);
+        UsuarioDTO usuarioDTO = usuarioConverter.convertUsuarioToUsuarioDTO(usuario);
+        return usuarioDTO;
+    }
+
+    public List<UsuarioDTO> listaUsuarios(){
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        List<UsuarioDTO> listaDTO = new ArrayList<>();
+        usuarios.forEach(usuario -> {
+            listaDTO.add(usuarioConverter.convertUsuarioToUsuarioDTO(usuario));
+        });
+        return listaDTO;
     }
 }
