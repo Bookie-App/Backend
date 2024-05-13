@@ -44,7 +44,7 @@ public class FavoritosService {
     //Lista favoritos del usuario
     public List<FavoritosDTO> listaFavoritosUsuario(Long id){
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
-        List<Favoritos> listaFavoritos = favoritosRepository.findByUsuarios(usuario);
+        List<Favoritos> listaFavoritos = favoritosRepository.findByUsuario(usuario);
         List<FavoritosDTO> listaDTO = new ArrayList<>();
         listaFavoritos.forEach(favoritos -> {
             listaDTO.add(favoritosConverter.convertFavoritosToFavoritosDTO(favoritos));
