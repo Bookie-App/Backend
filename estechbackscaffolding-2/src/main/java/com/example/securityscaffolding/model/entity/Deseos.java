@@ -25,6 +25,7 @@ public class Deseos {
 
     private String imagen;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "deseos")
-    private List<Usuario> usuarios = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    private Usuario usuario;
 }

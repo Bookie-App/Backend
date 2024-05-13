@@ -65,13 +65,8 @@ public class Usuario implements UserDetails {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Favoritos> favoritos = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "usuario_deseos",
-            joinColumns = @JoinColumn(name = "id_usuario"),
-            inverseJoinColumns = @JoinColumn(name = "id_deseos")
-    )
-    private Set<Deseos> deseos = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "usuario")
+    private List<Deseos> deseos = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private Rol rol;
