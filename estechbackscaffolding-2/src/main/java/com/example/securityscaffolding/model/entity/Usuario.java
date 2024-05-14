@@ -34,6 +34,7 @@ public class Usuario implements UserDetails {
     private String foto;
     private Boolean reportado;
     private String token;
+    private Integer bookieFavoritaId;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Libro> libros = new ArrayList<>();

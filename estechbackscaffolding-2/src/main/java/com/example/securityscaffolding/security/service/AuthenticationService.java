@@ -49,6 +49,7 @@ public class AuthenticationService {
                     .foto(request.getFoto())
                     .reportado(request.getReportado())
                     .token(request.getToken())
+                    .bookieFavoritaId(request.getBookieFavoritaId())
                     .build();
 
             usuarioRepository.save(user);

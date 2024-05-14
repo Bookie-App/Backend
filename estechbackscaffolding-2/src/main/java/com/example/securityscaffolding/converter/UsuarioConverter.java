@@ -16,6 +16,7 @@ public class UsuarioConverter {
                 .provincia(usuario.getProvincia())
                 .codigoPostal(usuario.getCodigoPostal())
                 .foto(usuario.getFoto())
+                .bookieFavoritaId(usuario.getBookieFavoritaId())
                 .build();
     }
 }

@@ -22,4 +22,5 @@ public class RegisterRequest {
     private String foto;
     private Boolean reportado;
     private String token;
+    private Integer bookieFavoritaId;
 }

@@ -18,4 +18,5 @@ public class UsuarioDTO {
     private String provincia;
     private Integer codigoPostal;
     private String foto;
+    private Integer bookieFavoritaId;
 }
