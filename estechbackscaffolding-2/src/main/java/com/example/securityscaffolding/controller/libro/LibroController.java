@@ -42,8 +42,14 @@ public class LibroController {
     }
 
     //Eliminar libro
-    @DeleteMapping
-    public void eliminarLibro(Long id){
+    @DeleteMapping("/{id}")
+    public void eliminarLibro(@PathVariable Long id){
         libroService.eliminarLibro(id);
+    }
+
+    //Actualizar libro
+    @PutMapping("/{id}")
+    public LibroDTO actualizarLibro(@PathVariable Long id, @RequestBody Libro libro){
+        return libroService.actualizarLibro(id,libro);
     }
 }

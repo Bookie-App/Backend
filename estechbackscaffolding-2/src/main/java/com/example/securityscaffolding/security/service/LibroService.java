@@ -67,4 +67,24 @@ public class LibroService {
         libroRepository.deleteById(id);
     }
 
+    //Actualizar
+    public LibroDTO actualizarLibro(Long id, Libro libro){
+        Libro libro1 = libroRepository.findById(id).orElse(null);
+
+        libro1.setTitulo(libro.getTitulo());
+        libro1.setAutor(libro.getAutor());
+        libro1.setNumeroPaginas(libro.getNumeroPaginas());
+        libro1.setGenero(libro.getGenero());
+        libro1.setFoto(libro.getFoto());
+        libro1.setSinopsis(libro.getSinopsis());
+        libro1.setEditorial(libro.getEditorial());
+        libro1.setPrestado(libro.getPrestado());
+        libro1.setFiltro(libro.getFiltro());
+
+        libroRepository.save(libro1);
+
+        LibroDTO libroDTO = libroConverter.convertLibroToLibroDTO(libro1);
+        return libroDTO;
+    }
+
 }
