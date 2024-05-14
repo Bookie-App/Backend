@@ -20,4 +20,5 @@ public class LibroDTO {
     private String editorial;
     private String usuario;
     private Long userId;
+    private Long libroId;
 }
