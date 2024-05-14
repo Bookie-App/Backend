@@ -13,4 +13,5 @@ public class FavoritosDTO {
 
     private String titulo;
     private String imagen;
+    private Long libroId;
 }

@@ -11,6 +11,7 @@ public class FavoritosConverter {
         return FavoritosDTO.builder()
                 .titulo(favoritos.getTitulo())
                 .imagen(favoritos.getImagen())
+                .libroId(favoritos.getLibro().getIdLibro())
                 .build();
     }
 }
