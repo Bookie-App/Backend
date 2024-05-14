@@ -37,6 +37,8 @@ public class Libro {
 
     private Boolean prestado;
 
+    private List<Integer> filtro;
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "libro")
     private List<ReseniaLibro> reseniaLibros = new ArrayList<>();
 

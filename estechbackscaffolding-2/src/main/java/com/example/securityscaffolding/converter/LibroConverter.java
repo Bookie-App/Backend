@@ -19,6 +19,8 @@ public class LibroConverter {
                 .usuario(libro.getUsuario().getUsername())
                 .userId(libro.getUsuario().getId())
                 .libroId(libro.getIdLibro())
+                .prestado(libro.getPrestado())
+                .filtro(libro.getFiltro())
                 .build();
 
     }

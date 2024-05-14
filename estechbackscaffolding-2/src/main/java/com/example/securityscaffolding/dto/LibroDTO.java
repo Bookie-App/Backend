@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -18,6 +20,8 @@ public class LibroDTO {
     private String foto;
     private String sinopsis;
     private String editorial;
+    private Boolean prestado;
+    private List<Integer> filtro;
     private String usuario;
     private Long userId;
     private Long libroId;
