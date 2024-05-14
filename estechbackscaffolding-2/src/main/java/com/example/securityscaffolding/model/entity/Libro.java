@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,7 +38,7 @@ public class Libro {
 
     private Boolean prestado;
 
-    private List<Integer> filtro;
+    private Set<Integer> filtro;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "libro")
     private List<ReseniaLibro> reseniaLibros = new ArrayList<>();

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class LibroDTO {
     private String sinopsis;
     private String editorial;
     private Boolean prestado;
-    private List<Integer> filtro;
+    private Set<Integer> filtro;
     private String usuario;
     private Long userId;
     private Long libroId;
