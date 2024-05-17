@@ -12,6 +12,7 @@ public class FavoritosConverter {
                 .titulo(favoritos.getTitulo())
                 .imagen(favoritos.getImagen())
                 .libroId(favoritos.getLibro().getIdLibro())
+                .idFavorito(favoritos.getIdFavorito())
                 .build();
     }
 }

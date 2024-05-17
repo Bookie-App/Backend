@@ -33,4 +33,10 @@ public class FavoritosController {
     public FavoritosDTO subirFavorito(@RequestBody Favoritos favoritos){
         return favoritosService.subirFavorito(favoritos);
     }
+
+    //Eliminar favorito
+    @DeleteMapping("/{id}")
+    public void eliminarFavorito(@PathVariable Long id){
+        favoritosService.eliminarFavorito(id);
+    }
 }

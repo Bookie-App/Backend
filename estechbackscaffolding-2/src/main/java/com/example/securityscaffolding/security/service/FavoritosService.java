@@ -51,4 +51,9 @@ public class FavoritosService {
         });
         return listaDTO;
     }
+
+    //Eliminar
+    public void eliminarFavorito(Long id){
+        favoritosRepository.deleteById(id);
+    }
 }
