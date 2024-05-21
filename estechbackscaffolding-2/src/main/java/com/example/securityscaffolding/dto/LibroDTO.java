@@ -18,7 +18,7 @@ public class LibroDTO {
     private String autor;
     private Integer numeroPaginas;
     private String genero;
-    private byte[] foto;
+    private String foto;
     private String sinopsis;
     private String editorial;
     private Boolean prestado;

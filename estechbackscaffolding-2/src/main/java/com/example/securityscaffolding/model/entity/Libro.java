@@ -30,8 +30,8 @@ public class Libro {
 
     private String genero;
 
-    @Column(columnDefinition = "LONGBLOB")
-    private byte[] foto;
+    @Column(columnDefinition = "LONGTEXT")
+    private String foto;
 
     private String sinopsis;
 

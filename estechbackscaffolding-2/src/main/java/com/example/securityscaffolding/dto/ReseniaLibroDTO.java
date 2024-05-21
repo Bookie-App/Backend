@@ -17,7 +17,7 @@ public class ReseniaLibroDTO {
     private String fechaReseniaLibro;
     private String libroTitulo;
     private String libroAutor;
-    private byte[] libroFoto;
+    private String libroFoto;
     private Long libroId;
     private String usernameLibro;
 

@@ -31,6 +31,7 @@ public class Usuario implements UserDetails {
     private String ciudad;
     private String provincia;
     private Integer codigoPostal;
+    @Column(columnDefinition = "LONGTEXT")
     private String foto;
     private Boolean reportado;
     private String token;
