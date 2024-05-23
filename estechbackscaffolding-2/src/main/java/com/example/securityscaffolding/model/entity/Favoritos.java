@@ -23,6 +23,7 @@ public class Favoritos {
 
     private String titulo;
 
+    @Column(columnDefinition = "LONGTEXT")
     private String imagen;
 
     @ManyToOne(fetch = FetchType.LAZY)
