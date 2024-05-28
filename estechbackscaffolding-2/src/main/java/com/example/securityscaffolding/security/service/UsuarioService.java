@@ -9,6 +9,7 @@ import com.example.securityscaffolding.repository.ChatRepository;
 import com.example.securityscaffolding.repository.MensajeRepository;
 import com.example.securityscaffolding.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -28,6 +29,9 @@ public class UsuarioService {
 
     @Autowired
     private MensajeRepository mensajeRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public void eliminarUsuario(Usuario usuario) {
         List<Chats> chats =  chatRepository.findByUsuarioEmisorOrUsuarioReceptor(usuario, usuario);
@@ -73,5 +77,51 @@ public class UsuarioService {
             listaDTO.add(usuarioConverter.convertUsuarioToUsuarioDTO(usuario));
         });
         return listaDTO;
+    }
+
+    //Actualizar
+    public UsuarioDTO actualizarUsuario(Long id, Usuario usuario){
+        Usuario usuario1 = usuarioRepository.findById(id).orElse(null);
+
+        usuario1.setNombre(usuario.getNombre());
+        usuario1.setUsername(usuario.getUsername());
+        usuario1.setEmail(usuario.getEmail());
+        usuario1.setCiudad(usuario.getCiudad());
+        usuario1.setProvincia(usuario.getProvincia());
+        usuario1.setCodigoPostal(usuario.getCodigoPostal());
+        usuario1.setFoto(usuario.getFoto());
+        usuario1.setBookieFavoritaId(usuario.getBookieFavoritaId());
+
+        if((usuario1.getNombre().isEmpty() || usuario1.getUsername().isEmpty() || usuario1.getEmail().isEmpty() || usuario1.getCiudad().isEmpty() || usuario1.getProvincia().isEmpty() || usuario1.getCodigoPostal().toString().isEmpty() || usuario1.getFoto().isEmpty() || usuario1.getBookieFavoritaId().toString().isEmpty())){
+            return null;
+        }else{
+            usuarioRepository.save(usuario1);
+
+            UsuarioDTO usuarioDTO = usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
+            return usuarioDTO;
+        }
+    }
+
+    //Actualizar reportado
+    public UsuarioDTO actualizarUsuarioReportado(Long id, Usuario usuario){
+        Usuario usuario1 = usuarioRepository.findById(id).orElse(null);
+
+        usuario1.setReportado(usuario.getReportado());
+
+        usuarioRepository.save(usuario1);
+
+        UsuarioDTO usuarioDTO = usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
+        return usuarioDTO;
+    }
+
+    public UsuarioDTO actualizarUsuarioPassword(Long id, Usuario usuario){
+        Usuario usuario1 = usuarioRepository.findById(id).orElse(null);
+
+        usuario1.setPassword(passwordEncoder.encode(usuario.getPassword()));
+
+        usuarioRepository.save(usuario1);
+
+        UsuarioDTO usuarioDTO = usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
+        return usuarioDTO;
     }
 }

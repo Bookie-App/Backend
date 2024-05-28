@@ -17,6 +17,8 @@ public class UsuarioConverter {
                 .codigoPostal(usuario.getCodigoPostal())
                 .foto(usuario.getFoto())
                 .bookieFavoritaId(usuario.getBookieFavoritaId())
+                .password(usuario.getPassword())
+                .reportado(usuario.getReportado())
                 .build();
     }
 }
