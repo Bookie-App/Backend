@@ -44,7 +44,7 @@ public class ReseniaPersonaService {
     //Lista reseñas usuario
     public List<ReseniaPersonaDTO> listaReseniaPersonaUsuario(Long id){
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
-        List<ReseniaPersona> listaReseniaPersona = reseniaPersonaRepository.findByUsuarioPuntuador(usuario);
+        List<ReseniaPersona> listaReseniaPersona = reseniaPersonaRepository.findByUsuarioPuntuado(usuario);
         List<ReseniaPersonaDTO> listaDTO = new ArrayList<>();
         listaReseniaPersona.forEach(reseniaPersona -> {
             listaDTO.add(reseniaPersonaConverter.convertReseniaPersonaToReseniaPersonaDTO(reseniaPersona));

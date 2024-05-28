@@ -11,4 +11,6 @@ import java.util.List;
 public interface ReseniaPersonaRepository extends JpaRepository<ReseniaPersona, Long> {
 
     List<ReseniaPersona> findByUsuarioPuntuador(Usuario usuario);
+
+    List<ReseniaPersona> findByUsuarioPuntuado(Usuario usuario);
 }
