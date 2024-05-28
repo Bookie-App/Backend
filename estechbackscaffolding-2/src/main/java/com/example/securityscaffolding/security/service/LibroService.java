@@ -87,4 +87,11 @@ public class LibroService {
         return libroDTO;
     }
 
+    //Libro por id
+    public LibroDTO buscarLibroDTO(Long id){
+        Libro libro = libroRepository.findById(id).orElse(null);
+        LibroDTO libroDTO = libroConverter.convertLibroToLibroDTO(libro);
+        return libroDTO;
+    }
+
 }

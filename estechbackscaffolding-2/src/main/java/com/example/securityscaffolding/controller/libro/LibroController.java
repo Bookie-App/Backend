@@ -52,4 +52,10 @@ public class LibroController {
     public LibroDTO actualizarLibro(@PathVariable Long id, @RequestBody Libro libro){
         return libroService.actualizarLibro(id,libro);
     }
+
+    //Buscar libro por id
+    @GetMapping("/{id}")
+    public LibroDTO buscarLibro(@PathVariable Long id){
+        return libroService.buscarLibroDTO(id);
+    }
 }
