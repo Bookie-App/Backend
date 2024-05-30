@@ -78,7 +78,6 @@ public class LibroService {
         libro1.setFoto(libro.getFoto());
         libro1.setSinopsis(libro.getSinopsis());
         libro1.setEditorial(libro.getEditorial());
-        libro1.setPrestado(libro.getPrestado());
         libro1.setFiltro(libro.getFiltro());
 
         libroRepository.save(libro1);
@@ -91,6 +90,18 @@ public class LibroService {
     public LibroDTO buscarLibroDTO(Long id){
         Libro libro = libroRepository.findById(id).orElse(null);
         LibroDTO libroDTO = libroConverter.convertLibroToLibroDTO(libro);
+        return libroDTO;
+    }
+
+    //Actualizar libro prestado
+    public LibroDTO actualizarLibroPrestado(Long id, Libro libro){
+        Libro libro1 = libroRepository.findById(id).orElse(null);
+
+        libro1.setPrestado(libro.getPrestado());
+
+        libroRepository.save(libro1);
+
+        LibroDTO libroDTO = libroConverter.convertLibroToLibroDTO(libro1);
         return libroDTO;
     }
 

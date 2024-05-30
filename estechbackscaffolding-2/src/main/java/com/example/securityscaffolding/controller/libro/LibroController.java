@@ -58,4 +58,10 @@ public class LibroController {
     public LibroDTO buscarLibro(@PathVariable Long id){
         return libroService.buscarLibroDTO(id);
     }
+
+    //Actualizar libro prestado
+    @PutMapping("/prestado/{id}")
+    public LibroDTO actualizarLibroPrestado(@PathVariable Long id, @RequestBody Libro libro){
+        return libroService.actualizarLibroPrestado(id,libro);
+    }
 }
