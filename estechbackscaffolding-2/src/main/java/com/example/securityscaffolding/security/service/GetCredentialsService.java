@@ -32,6 +32,7 @@ public class GetCredentialsService {
         String ciudad = usuario.getCiudad();
         String provincia = usuario.getProvincia();
         Integer codigoPostal = usuario.getCodigoPostal();
+        String foto = usuario.getFoto();
 
         map.put("username" , userAuth);
         map.put("id" , userId);
@@ -40,6 +41,7 @@ public class GetCredentialsService {
         map.put("ciudad", ciudad);
         map.put("provincia", provincia);
         map.put("codigoPostal", codigoPostal);
+        map.put("foto", foto);
 
         return  map;
 
