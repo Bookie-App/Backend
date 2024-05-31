@@ -69,4 +69,9 @@ public class ChatService {
         });
         return listaDTO;
     }
+
+    //Eliminar chat
+    public void eliminarChat(Long id){
+        chatRepository.deleteById(id);
+    }
 }

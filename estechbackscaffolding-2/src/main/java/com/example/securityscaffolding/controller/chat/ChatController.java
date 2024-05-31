@@ -32,4 +32,9 @@ public class ChatController {
     public List<ChatDTO> listaChatsUsuario(@PathVariable Long id){
         return chatService.listaChatsUsuario(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminarChat(@PathVariable Long id){
+        chatService.eliminarChat(id);
+    }
 }
