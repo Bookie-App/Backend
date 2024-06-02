@@ -10,6 +10,7 @@ import com.example.securityscaffolding.security.service.GetCredentialsService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -34,7 +35,16 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
-        return  ResponseEntity.ok(authenticationService.authenticate(request));
+        AuthenticationResponse authResponse = authenticationService.authenticate(request);
+
+        // Crear encabezados y añadir el token
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Auth-Token", authResponse.getToken());
+
+        // Devolver la respuesta sin el token en el cuerpo
+        authResponse.setToken(null); // Opcional: para asegurarte de que no se envíe en el cuerpo
+
+        return new ResponseEntity<>(authResponse, headers, HttpStatus.OK);
     }
 
 

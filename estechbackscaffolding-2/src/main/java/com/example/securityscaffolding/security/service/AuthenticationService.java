@@ -78,6 +78,8 @@ public class AuthenticationService {
 
         var jwtToken = jwtService.generateToken(user);
 
+        System.out.println("Token del usuario: " + jwtToken);
+
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .username(request.getUsername())
