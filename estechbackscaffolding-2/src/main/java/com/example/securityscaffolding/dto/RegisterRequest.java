@@ -1,5 +1,6 @@
 package com.example.securityscaffolding.dto;
 
+import com.example.securityscaffolding.model.enums.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class RegisterRequest {
 
-    private String rol;
+    private Rol rol;
     private String nombre;
     private String username;
     private String password;

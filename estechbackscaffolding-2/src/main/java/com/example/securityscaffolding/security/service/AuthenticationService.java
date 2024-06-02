@@ -38,7 +38,7 @@ public class AuthenticationService {
 
         if(findUsername.isEmpty()){
             var user = Usuario.builder()
-                    .rol(Rol.valueOf(request.getRol()))
+                    .rol(Rol.valueOf(request.getRol().name()))
                     .nombre(request.getNombre())
                     .username(request.getUsername())
                     .password(passwordEncoder.encode(request.getPassword()))
