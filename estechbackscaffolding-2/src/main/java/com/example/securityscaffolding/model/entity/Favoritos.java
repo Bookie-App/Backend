@@ -30,8 +30,6 @@ public class Favoritos {
 
     private String genero;
 
-    private Set<Integer> filtros;
-
     private String sinopsis;
 
     private String editorial;

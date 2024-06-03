@@ -22,7 +22,6 @@ public class LibroDTO {
     private String sinopsis;
     private String editorial;
     private Boolean prestado;
-    private Set<Integer> filtro;
     private String usuario;
     private Long userId;
     private Long libroId;

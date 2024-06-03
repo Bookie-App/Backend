@@ -14,7 +14,6 @@ public class FavoritosConverter {
                 .autor(favoritos.getAutor())
                 .numeroPaginas(favoritos.getNumeroPaginas())
                 .genero(favoritos.getGenero())
-                .filtro(favoritos.getFiltros())
                 .sinopsis(favoritos.getSinopsis())
                 .editorial(favoritos.getEditorial())
                 .prestado(favoritos.getPrestado())
@@ -29,7 +28,6 @@ public class FavoritosConverter {
                 .sinopsisLibro(favoritos.getLibro().getSinopsis())
                 .editorialLibro(favoritos.getLibro().getEditorial())
                 .prestadoLibro(favoritos.getLibro().getPrestado())
-                .filtroLibro(favoritos.getLibro().getFiltro())
                 .usuarioIdLibro(favoritos.getLibro().getUsuario().getId())
                 .usuarioUsernameLibro(favoritos.getLibro().getUsuario().getUsername())
                 .build();

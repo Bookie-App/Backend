@@ -18,7 +18,6 @@ public class FavoritosDTO {
     private String autor;
     private Integer numeroPaginas;
     private String genero;
-    private Set<Integer> filtro;
     private String sinopsis;
     private String editorial;
     private Boolean prestado;
@@ -33,7 +32,6 @@ public class FavoritosDTO {
     private String sinopsisLibro;
     private String editorialLibro;
     private Boolean prestadoLibro;
-    private Set<Integer> filtroLibro;
     private Long usuarioIdLibro;
     private String usuarioUsernameLibro;
 
