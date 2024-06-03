@@ -15,7 +15,15 @@ public class FavoritosDTO {
 
     private String titulo;
     private String imagen;
-    private Long libroId;
+    private String autor;
+    private Integer numeroPaginas;
+    private String genero;
+    private Set<Integer> filtro;
+    private String sinopsis;
+    private String editorial;
+    private Boolean prestado;
+    private Integer libroId;
+    private Long libroId2;
     private Long idFavorito;
     private String tituloLibro;
     private String autorLibro;

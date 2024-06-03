@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +23,22 @@ public class Favoritos {
     private Long idFavorito;
 
     private String titulo;
+
+    private String autor;
+
+    private Integer numeroPaginas;
+
+    private String genero;
+
+    private Set<Integer> filtros;
+
+    private String sinopsis;
+
+    private String editorial;
+
+    private Boolean prestado;
+
+    private Integer libroId;
 
     @Column(columnDefinition = "LONGTEXT")
     private String imagen;
