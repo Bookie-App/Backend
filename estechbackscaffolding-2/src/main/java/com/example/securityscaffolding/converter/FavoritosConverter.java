@@ -18,18 +18,7 @@ public class FavoritosConverter {
                 .editorial(favoritos.getEditorial())
                 .prestado(favoritos.getPrestado())
                 .libroId(favoritos.getLibroId())
-                .libroId2(favoritos.getLibro().getIdLibro())
                 .idFavorito(favoritos.getIdFavorito())
-                .tituloLibro(favoritos.getLibro().getTitulo())
-                .autorLibro(favoritos.getLibro().getAutor())
-                .numeroPaginasLibro(favoritos.getLibro().getNumeroPaginas())
-                .generoLibro(favoritos.getLibro().getGenero())
-                .fotoLibro(favoritos.getLibro().getFoto())
-                .sinopsisLibro(favoritos.getLibro().getSinopsis())
-                .editorialLibro(favoritos.getLibro().getEditorial())
-                .prestadoLibro(favoritos.getLibro().getPrestado())
-                .usuarioIdLibro(favoritos.getLibro().getUsuario().getId())
-                .usuarioUsernameLibro(favoritos.getLibro().getUsuario().getUsername())
                 .build();
     }
 }
