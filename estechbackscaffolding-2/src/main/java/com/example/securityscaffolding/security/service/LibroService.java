@@ -78,7 +78,7 @@ public class LibroService {
         libro1.setFoto(libro.getFoto());
         libro1.setSinopsis(libro.getSinopsis());
         libro1.setEditorial(libro.getEditorial());
-        libro1.setFiltro(libro.getFiltro());
+
 
         libroRepository.save(libro1);
 
