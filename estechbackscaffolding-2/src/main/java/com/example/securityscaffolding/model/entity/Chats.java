@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -30,8 +28,4 @@ public class Chats {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "chat")
     private List<Mensaje> mensajes;
 
-
-
-   /* @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date fechaEnvio;*/
 }

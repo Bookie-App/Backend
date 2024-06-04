@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+
+/**
+ * Esta clase define el cont
+ */
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/credentials")

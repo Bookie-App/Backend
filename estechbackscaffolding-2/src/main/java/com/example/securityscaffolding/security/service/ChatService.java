@@ -51,8 +51,7 @@ public class ChatService {
     //Subir chat
     public ChatDTO subirChatDTO(Chats chats){
         Chats chatGuardado = chatRepository.save(chats);
-        ChatDTO chatDTO = chatConverter.convertChatsToChatDTO(chatGuardado);
-        return chatDTO;
+        return chatConverter.convertChatsToChatDTO(chatGuardado);
     }
 
     //Lista chats del usuario

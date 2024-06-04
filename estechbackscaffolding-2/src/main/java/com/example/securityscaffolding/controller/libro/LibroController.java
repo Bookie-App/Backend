@@ -2,7 +2,6 @@ package com.example.securityscaffolding.controller.libro;
 
 import com.example.securityscaffolding.dto.LibroDTO;
 import com.example.securityscaffolding.model.entity.Libro;
-import com.example.securityscaffolding.model.entity.Usuario;
 import com.example.securityscaffolding.security.service.LibroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

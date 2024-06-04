@@ -27,8 +27,7 @@ public class FavoritosService {
     //POST favorito
     public FavoritosDTO subirFavorito(Favoritos favoritos){
         Favoritos favoritoGuardado = favoritosRepository.save(favoritos);
-        FavoritosDTO favoritosDTO = favoritosConverter.convertFavoritosToFavoritosDTO(favoritoGuardado);
-        return favoritosDTO;
+        return favoritosConverter.convertFavoritosToFavoritosDTO(favoritoGuardado);
     }
 
     //Lista todos los favoritos

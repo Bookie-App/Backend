@@ -1,6 +1,5 @@
 package com.example.securityscaffolding.dto;
 
-import com.example.securityscaffolding.model.entity.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

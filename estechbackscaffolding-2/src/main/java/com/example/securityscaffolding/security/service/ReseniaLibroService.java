@@ -26,8 +26,7 @@ public class ReseniaLibroService {
 
     public ReseniaLibroDTO subirReseniaLibro(ReseniaLibro reseniaLibro){
         ReseniaLibro reseniaLibro1 = reseniaLibroRepository.save(reseniaLibro);
-        ReseniaLibroDTO reseniaLibroDTO = reseniaLibroConverter.convertReseniaLibroToReseniaLibroDTO(reseniaLibro1);
-        return reseniaLibroDTO;
+        return reseniaLibroConverter.convertReseniaLibroToReseniaLibroDTO(reseniaLibro1);
     }
 
     public List<ReseniaLibroDTO> listaReseniaLibro(){

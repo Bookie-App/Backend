@@ -27,8 +27,7 @@ public class LibroService {
     //Subir libro
     public LibroDTO subirLibro(Libro libro){
         Libro libroGuardado = libroRepository.save(libro);
-        LibroDTO libroDTO = libroConverter.convertLibroToLibroDTO(libroGuardado);
-        return libroDTO;
+        return libroConverter.convertLibroToLibroDTO(libroGuardado);
     }
 
     //Lista todos los libros
@@ -71,6 +70,7 @@ public class LibroService {
     public LibroDTO actualizarLibro(Long id, Libro libro){
         Libro libro1 = libroRepository.findById(id).orElse(null);
 
+        assert libro1 != null;
         libro1.setTitulo(libro.getTitulo());
         libro1.setAutor(libro.getAutor());
         libro1.setNumeroPaginas(libro.getNumeroPaginas());
@@ -82,27 +82,26 @@ public class LibroService {
 
         libroRepository.save(libro1);
 
-        LibroDTO libroDTO = libroConverter.convertLibroToLibroDTO(libro1);
-        return libroDTO;
+        return libroConverter.convertLibroToLibroDTO(libro1);
     }
 
     //Libro por id
     public LibroDTO buscarLibroDTO(Long id){
         Libro libro = libroRepository.findById(id).orElse(null);
-        LibroDTO libroDTO = libroConverter.convertLibroToLibroDTO(libro);
-        return libroDTO;
+        assert libro != null;
+        return libroConverter.convertLibroToLibroDTO(libro);
     }
 
     //Actualizar libro prestado
     public LibroDTO actualizarLibroPrestado(Long id, Libro libro){
         Libro libro1 = libroRepository.findById(id).orElse(null);
 
+        assert libro1 != null;
         libro1.setPrestado(libro.getPrestado());
 
         libroRepository.save(libro1);
 
-        LibroDTO libroDTO = libroConverter.convertLibroToLibroDTO(libro1);
-        return libroDTO;
+        return libroConverter.convertLibroToLibroDTO(libro1);
     }
 
 }

@@ -27,8 +27,7 @@ public class ReseniaPersonaService {
     //Subir reseña
     public ReseniaPersonaDTO subirReseniaPersona(ReseniaPersona reseniaPersona){
         ReseniaPersona reseniaGuardada = reseniaPersonaRepository.save(reseniaPersona);
-        ReseniaPersonaDTO reseniaPersonaDTO = reseniaPersonaConverter.convertReseniaPersonaToReseniaPersonaDTO(reseniaGuardada);
-        return reseniaPersonaDTO;
+        return reseniaPersonaConverter.convertReseniaPersonaToReseniaPersonaDTO(reseniaGuardada);
     }
 
     //Lista reseñas

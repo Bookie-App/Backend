@@ -27,8 +27,7 @@ public class DeseosService {
 
     public DeseosDTO postDeseo(Deseos deseos){
         Deseos deseoGuardado = deseosRepository.save(deseos);
-        DeseosDTO deseosDTO = deseosConverter.convertDeseosToDeseosDTO(deseoGuardado);
-        return deseosDTO;
+        return deseosConverter.convertDeseosToDeseosDTO(deseoGuardado);
     }
 
     public List<DeseosDTO> listaDeseos(){

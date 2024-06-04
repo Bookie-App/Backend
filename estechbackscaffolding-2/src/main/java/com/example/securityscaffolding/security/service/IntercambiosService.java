@@ -26,8 +26,7 @@ public class IntercambiosService {
 
     public IntercambiosDTO postIntercambio(LibrosPrestados librosPrestados){
         LibrosPrestados intercambioGuardado = intercambiosRepository.save(librosPrestados);
-        IntercambiosDTO intercambiosDTO = intercambiosConverter.convertLibrosPrestadosToIntercambiosDTO(intercambioGuardado);
-        return intercambiosDTO;
+        return intercambiosConverter.convertLibrosPrestadosToIntercambiosDTO(intercambioGuardado);
     }
 
     public List<IntercambiosDTO> listaIntercambios(){

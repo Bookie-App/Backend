@@ -39,9 +39,7 @@ public class UsuarioService {
         List<Mensaje> mensajes = new ArrayList<>();
 
         chats.forEach(chat -> {
-            chat.getMensajes().forEach(mensaje -> {
-                mensajes.add((mensaje));
-            });
+            mensajes.addAll(chat.getMensajes());
         });
 
         chats.forEach(chat -> {
@@ -66,8 +64,8 @@ public class UsuarioService {
 
     public UsuarioDTO buscarUsuarioDTO(Long id){
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
-        UsuarioDTO usuarioDTO = usuarioConverter.convertUsuarioToUsuarioDTO(usuario);
-        return usuarioDTO;
+        assert usuario != null;
+        return usuarioConverter.convertUsuarioToUsuarioDTO(usuario);
     }
 
     public List<UsuarioDTO> listaUsuarios(){
@@ -83,6 +81,7 @@ public class UsuarioService {
     public UsuarioDTO actualizarUsuario(Long id, Usuario usuario){
         Usuario usuario1 = usuarioRepository.findById(id).orElse(null);
 
+        assert usuario1 != null;
         usuario1.setNombre(usuario.getNombre());
         usuario1.setUsername(usuario.getUsername());
         usuario1.setEmail(usuario.getEmail());
@@ -97,8 +96,7 @@ public class UsuarioService {
         }else{
             usuarioRepository.save(usuario1);
 
-            UsuarioDTO usuarioDTO = usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
-            return usuarioDTO;
+            return usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
         }
     }
 
@@ -106,22 +104,22 @@ public class UsuarioService {
     public UsuarioDTO actualizarUsuarioReportado(Long id, Usuario usuario){
         Usuario usuario1 = usuarioRepository.findById(id).orElse(null);
 
+        assert usuario1 != null;
         usuario1.setReportado(usuario.getReportado());
 
         usuarioRepository.save(usuario1);
 
-        UsuarioDTO usuarioDTO = usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
-        return usuarioDTO;
+        return usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
     }
 
     public UsuarioDTO actualizarUsuarioPassword(Long id, Usuario usuario){
         Usuario usuario1 = usuarioRepository.findById(id).orElse(null);
 
+        assert usuario1 != null;
         usuario1.setPassword(passwordEncoder.encode(usuario.getPassword()));
 
         usuarioRepository.save(usuario1);
 
-        UsuarioDTO usuarioDTO = usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
-        return usuarioDTO;
+        return usuarioConverter.convertUsuarioToUsuarioDTO(usuario1);
     }
 }

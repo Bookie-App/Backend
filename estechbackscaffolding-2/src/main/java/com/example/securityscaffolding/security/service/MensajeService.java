@@ -18,7 +18,6 @@ public class MensajeService {
 
     public MensajeDTO subirMensajeDTO(Mensaje mensaje){
         Mensaje mensajeGuardado = mensajeRepository.save(mensaje);
-        MensajeDTO mensajeDTO = mensajeConverter.convertMensajeToMensajeDTO(mensajeGuardado);
-        return mensajeDTO;
+        return mensajeConverter.convertMensajeToMensajeDTO(mensajeGuardado);
     }
 }
