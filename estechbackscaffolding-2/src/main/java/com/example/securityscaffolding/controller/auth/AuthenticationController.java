@@ -55,16 +55,7 @@ public class AuthenticationController {
      */
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
-        AuthenticationResponse authResponse = authenticationService.authenticate(request);
-
-        // Crear encabezados y añadir el token
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Auth-Token", authResponse.getToken());
-
-        // Devolver la respuesta sin el token en el cuerpo
-        authResponse.setToken(null); // Opcional: para asegurarte de que no se envíe en el cuerpo
-
-        return new ResponseEntity<>(authResponse, headers, HttpStatus.OK);
+        return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 
 

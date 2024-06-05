@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AuthenticationResponse {
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String token;
     private String username;
 }
