@@ -1,6 +1,6 @@
 package com.example.securityscaffolding.security.config;
 
-import com.example.securityscaffolding.security.CustomAuthenticationEntryPoint;
+import com.example.securityscaffolding.controller.global_exception_handler.CustomAuthenticationEntryPoint;
 import com.example.securityscaffolding.security.filters.JwtAuthenticationFilter;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
