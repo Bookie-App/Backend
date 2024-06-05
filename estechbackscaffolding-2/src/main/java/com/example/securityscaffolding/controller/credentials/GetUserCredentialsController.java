@@ -14,7 +14,11 @@ import java.util.Map;
 
 
 /**
- * Esta clase define el cont
+ * Esta clase define el controlador que contiene el método para obtener los datos del usuario a partir del token jwt.
+ *
+ * @author Iñigo Acosta
+ * @version 19/03/2024
+ * @since 19/03/2024
  */
 
 @CrossOrigin
@@ -25,6 +29,14 @@ public class GetUserCredentialsController {
     @Autowired
     private GetCredentialsService getCredentialsService;
 
+    /**
+     * Se manda una petición con el token jwt del usuario y a partir de este, se obtiene su información
+     *
+     * @param request una interfaz que contiene métodos para obtener información
+     * @param map
+     * @return un mapa con clave y valor que cotiene los atributos del usuario
+     * @see HttpServletRequest
+     */
     @PostMapping("/get-user-from-token")
     @PreAuthorize("hasAnyRole('ROLE_USER' , 'ROLE_ADMIN')")
     public ResponseEntity<Map<String,Object>> getTokenFromRequest(HttpServletRequest request, Map<String,Object> map){
