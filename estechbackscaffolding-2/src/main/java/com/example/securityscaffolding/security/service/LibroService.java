@@ -104,4 +104,13 @@ public class LibroService {
         return libroConverter.convertLibroToLibroDTO(libro1);
     }
 
+    public List<LibroDTO> listaLibrosTitulo(String titulo){
+        List<Libro> listaLibros = libroRepository.findByTitulo(titulo);
+        List<LibroDTO> listaDTO = new ArrayList<>();
+        listaLibros.forEach(libro -> {
+            listaDTO.add(libroConverter.convertLibroToLibroDTO(libro));
+        });
+        return listaDTO;
+    }
+
 }
