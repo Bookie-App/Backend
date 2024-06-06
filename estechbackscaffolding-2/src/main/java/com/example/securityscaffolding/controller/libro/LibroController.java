@@ -123,6 +123,13 @@ public class LibroController {
         return libroService.actualizarLibroPrestado(id,libro);
     }
 
+    /**
+     * Busca el libro por su título
+     *
+     * @param titulo nombre del titulo
+     * @return una lista DTO de los libros con ese titulo
+     * @see LibroDTO
+     */
     @GetMapping("/titulo/{titulo}")
     public List<LibroDTO> buscarLibroTitulo(@PathVariable String titulo){
         return libroService.listaLibrosTitulo(titulo);
