@@ -19,6 +19,7 @@ public class UsuarioConverter {
                 .bookieFavoritaId(usuario.getBookieFavoritaId())
                 .password(usuario.getPassword())
                 .reportado(usuario.getReportado())
+                .id(usuario.getId())
                 .build();
     }
 }
